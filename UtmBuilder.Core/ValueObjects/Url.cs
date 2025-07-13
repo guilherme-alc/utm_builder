@@ -1,4 +1,6 @@
-﻿namespace UtmBuilder.Core.ValueObjects
+﻿using UtmBuilder.Core.ValueObjects.Exceptions;
+
+namespace UtmBuilder.Core.ValueObjects
 {
     public class Url : ValueObject
     {
@@ -9,6 +11,7 @@
         public Url(string address)
         {
             Address = address;
+            InvalidUrlException.ThrowIfInvalidUrl(address);
         }
         /// <summary>
         /// Address of URL (Website link)

@@ -1,4 +1,6 @@
-﻿namespace UtmBuilder.Core.ValueObjects
+﻿using UtmBuilder.Core.ValueObjects.Exceptions;
+
+namespace UtmBuilder.Core.ValueObjects
 {
     public class Campaign : ValueObject
     {
@@ -25,6 +27,10 @@
             Id = id;
             Term = term;
             Content = content;
+
+            InvalidCampaignException.ThrowIfNull(source, "Source é inválido");
+            InvalidCampaignException.ThrowIfNull(medium, "Medium é inválido");
+            InvalidCampaignException.ThrowIfNull(name, "Name é inválido");
         }
         /// <summary>
         /// The ads campaign id.
