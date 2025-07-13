@@ -30,5 +30,7 @@ namespace UtmBuilder.Core
             segments.AddIfNotNull("utm_content", Campaign.Content);
             return $"{Url.Address}?{string.Join("&", segments)}";
         }
+
+        public static implicit operator string(Utm utm) => utm.ToString();
     }
 }
